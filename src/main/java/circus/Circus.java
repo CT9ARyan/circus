@@ -51,7 +51,7 @@ public class Circus {
     }
 
     public static void main(String[] args) {
-        
+
         System.out.println("Number of animals in array: " + animals.length);
         //animals[3] = new Elephant("Ellie");       //this doesn't work
         ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
@@ -93,9 +93,12 @@ public class Circus {
         Cage<Parrot> parrotCage = new Cage<>();
         parrotCage.lockUp(parrot);
 
+        Cage<Elephant> elephantCage = new Cage<>();
+        elephantCage.lockUp(ellie);
         ArrayList<Cage> cages = new ArrayList<>();
         cages.add(duckCage);
         cages.add(parrotCage);
+        cages.add(elephantCage);
 
         for(Cage c: cages) {
             c.release();
