@@ -43,9 +43,33 @@ public class Circus {
     }
 
     public static void main(String[] args) {
-        makeAnimalsTalk();
+        System.out.println("Number of animals in array: " + animals.length);
+        //animals[3] = new Elephant("Ellie");       //this doesn't work
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+
+        printAllAnimals(animalArrayList);
+
+        Elephant ellie = new Elephant("Ellie");
+        animalArrayList.add(ellie);
+
+        Duck ducky = new Duck("Ducky");
+        animalArrayList.add(ducky);
+
+        printAllAnimals(animalArrayList);
+        System.out.println("Size of animal array list: " + animalArrayList.size());
+
+        System.out.println("Ellie is in position: " + (animalArrayList.indexOf(ellie)+1));
+
+        animalArrayList.sort(AnimalNameComparator);
+
+        System.out.println("After sorting:");
+        printAllAnimals(animalArrayList);
+
+        /*makeAnimalsTalk();
         System.out.println("Total value of animals " + calculateAssetValue(animals));
-        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+        System.out.println("Total value of equipments " + calculateAssetValue(equipments));*/
+    }
+
     private static void printAllAnimals(ArrayList<Animal> animalArrayList) {
         for (Animal animal : animalArrayList) {
             System.out.println(animal);
